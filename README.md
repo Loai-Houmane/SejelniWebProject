@@ -1,70 +1,163 @@
-# Getting Started with Create React App
+# Sejelni Front
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sejelni Front is a digital platform designed to connect Moroccan and foreign students with agencies that provide academic and administrative support. This platform aims to streamline the process of finding and interacting with agencies that can assist students with various needs, including admissions, visa applications, and other academic services.
 
-## Available Scripts
+This project was built using the Velzon template to ensure a modern and responsive design. The project was completed in 16 days.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📖 **Table of Contents**  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 🏠 [**Sejelni Front**](#sejelni-front)  
+  - 📌 [**Table of Contents**](#table-of-contents)  
+  - ✨ [**Features**](#features)  
+  - ⚙️ [**Installation**](#installation)  
+  - 🚀 [**Usage**](#usage)  
+    - 🧑‍🎓 [**Student Registration**](#student-registration)  
+    - 🏢 [**Agency Registration**](#agency-registration)  
+    - 🔍 [**Browsing Agencies**](#browsing-agencies)  
+    - 📅 [**Scheduling Appointments**](#scheduling-appointments)  
+  - 📂 [**Project Structure**](#-project-structure)  
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+- **Student Registration and Login**: Students can create accounts, log in, and manage their profiles.
+- **Agency Registration and Login**: Agencies can create accounts, log in, and manage their profiles.
+- **Agency Listings**: Students can browse and filter through a list of registered agencies.
+- **Agency Details**: Detailed view of each agency, including services offered, ratings, and reviews.
+- **Appointment Scheduling**: Students can schedule appointments with agencies.
+- **Review and Rating System**: Students can leave reviews and ratings for agencies.
+- **Multi-language Support**: The platform supports multiple languages, including Arabic and French.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To get started with the project, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone the repository**:
+    ```sh
+    git clone https://github.com/yourusername/Sejelni_Front.git
+    cd Sejelni_Front
+    ```
 
-### `npm run eject`
+2. **Install dependencies**:
+    ```sh
+    yarn install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **Start the development server**:
+    ```sh
+    yarn start
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Once the development server is running, you can access the platform in your web browser at `http://localhost:3000`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Student Registration
 
-## Learn More
+1. Navigate to the registration page.
+2. Fill in the required details (name, email, password, etc.).
+3. Submit the form to create a new student account.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Agency Registration
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Navigate to the agency registration page.
+2. Fill in the required details (agency name, email, password, etc.).
+3. Submit the form to create a new agency account.
 
-### Code Splitting
+### Browsing Agencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Log in to your student account.
+2. Use the search and filter options to find agencies that meet your criteria.
+3. Click on an agency to view detailed information.
 
-### Analyzing the Bundle Size
+### Scheduling Appointments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Navigate to the agency's profile page.
+2. Select an available time slot.
+3. Confirm the appointment.
 
-### Making a Progressive Web App
+ 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📂 **Project Structure**  
 
-### Advanced Configuration
+```
+Sejelni_Front/
+├── 📂 public/               # Static assets and configuration files
+│   ├── 🎨 favicon.ico       # Website icon
+│   ├── 📄 index.html        # Main HTML file
+│   ├── 🖼️ logo192.png       # App logo (192px)
+│   ├── 🖼️ logo512.png       # App logo (512px)
+│   ├── ⚙️ manifest.json      # PWA settings
+│   └── 🤖 robots.txt        # Rules for web crawlers
+├── 📂 src/                  # Application source code
+│   ├── 🎨 assets/           # Images, fonts, and static files
+│   ├── 🌍 common/           # Shared utilities and constants
+│   ├── 🧩 Components/       # Reusable UI components
+│   ├── 🔧 helpers/          # Helper functions for logic
+│   ├── 🌐 locales/          # Localization files
+│   ├── 📄 pages/            # Main app pages and views
+│   ├── 📦 slices/           # Redux slices (state management)
+│   ├── 🎨 App.css           # Global styles
+│   ├── ⚛️ App.js            # Root React component
+│   ├── 🧪 App.test.js       # Unit tests for App.js
+│   ├── ⚙️ index.js          # Entry point for React
+│   ├── 📊 reportWebVitals.js # Performance monitoring
+│   └── 🔬 setupTests.js     # Test configuration
+├── 📄 .gitignore            # Files to be ignored by Git
+├── 📄 eslint.config.js      # ESLint configuration
+├── 📦 package.json          # Dependencies and project metadata
+├── 📄 README.md             # Project documentation (you're here!)
+└── ⚙️ staticwebapp.config.json # Static web app settings
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Images from Sejelni Directory
 
-### Deployment
+### Admin
+![Screenshot 2025-01-08 075008](sejelni/admin/Screenshot%202025-01-08%20075008.png)
+![Screenshot 2025-01-08 075015](sejelni/admin/Screenshot%202025-01-08%20075015.png)
+![Screenshot 2025-01-08 075022](sejelni/admin/Screenshot%202025-01-08%20075022.png)
+![Screenshot 2025-01-08 075032](sejelni/admin/Screenshot%202025-01-08%20075032.png)
+![Screenshot 2025-01-08 075049](sejelni/admin/Screenshot%202025-01-08%20075049.png)
+![Screenshot 2025-01-08 075119](sejelni/admin/Screenshot%202025-01-08%20075119.png)
+![Screenshot 2025-01-08 075131](sejelni/admin/Screenshot%202025-01-08%20075131.png)
+![Screenshot 2025-01-08 075144](sejelni/admin/Screenshot%202025-01-08%20075144.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Agency
+![Screenshot 2025-01-08 074752](sejelni/agency/Screenshot%202025-01-08%20074752.png)
+![Screenshot 2025-01-08 074758](sejelni/agency/Screenshot%202025-01-08%20074758.png)
+![Screenshot 2025-01-08 074811](sejelni/agency/Screenshot%202025-01-08%20074811.png)
+![Screenshot 2025-01-08 074818](sejelni/agency/Screenshot%202025-01-08%20074818.png)
 
-### `npm run build` fails to minify
+### Landing Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Screenshot 2025-01-08 073346](sejelni/landing/Screenshot%202025-01-08%20073346.png)
+![Screenshot 2025-01-08 073404](sejelni/landing/Screenshot%202025-01-08%20073404.png)
+![Screenshot 2025-01-08 073414](sejelni/landing/Screenshot%202025-01-08%20073414.png)
+![Screenshot 2025-01-08 073432](sejelni/landing/Screenshot%202025-01-08%20073432.png)
+![Screenshot 2025-01-08 073452](sejelni/landing/Screenshot%202025-01-08%20073452.png)
+![Screenshot 2025-01-08 073502](sejelni/landing/Screenshot%202025-01-08%20073502.png)
+![Screenshot 2025-01-08 073515](sejelni/landing/Screenshot%202025-01-08%20073515.png)
+![Screenshot 2025-01-08 073522](sejelni/landing/Screenshot%202025-01-08%20073522.png)
+![Screenshot 2025-01-08 073528](sejelni/landing/Screenshot%202025-01-08%20073528.png)
+![Screenshot 2025-01-08 073617](sejelni/landing/Screenshot%202025-01-08%20073617.png)
+![Screenshot 2025-01-08 073627](sejelni/landing/Screenshot%202025-01-08%20073627.png)
+![Screenshot 2025-01-08 073900](sejelni/landing/Screenshot%202025-01-08%20073900.png)
+
+### Student
+
+![Screenshot 2025-01-08 073743](sejelni/student/Screenshot%202025-01-08%20073743.png)
+![Screenshot 2025-01-08 073752](sejelni/student/Screenshot%202025-01-08%20073752.png)
+![Screenshot 2025-01-08 073804](sejelni/student/Screenshot%202025-01-08%20073804.png)
+![Screenshot 2025-01-08 073838](sejelni/student/Screenshot%202025-01-08%20073838.png)
+![Screenshot 2025-01-08 073849](sejelni/student/Screenshot%202025-01-08%20073849.png)
+![Screenshot 2025-01-08 073900](sejelni/student/Screenshot%202025-01-08%20073900.png)
+![Screenshot 2025-01-08 073910](sejelni/student/Screenshot%202025-01-08%20073910.png)
+![Screenshot 2025-01-08 073930](sejelni/student/Screenshot%202025-01-08%20073930.png)
+![Screenshot 2025-01-08 073948](sejelni/student/Screenshot%202025-01-08%20073948.png)
+![Screenshot 2025-01-08 074009](sejelni/student/Screenshot%202025-01-08%20074009.png)
+![Screenshot 2025-01-08 074037](sejelni/student/Screenshot%202025-01-08%20074037.png)
+![Screenshot 2025-01-08 074101](sejelni/student/Screenshot%202025-01-08%20074101.png)
+![Screenshot 2025-01-08 074143](sejelni/student/Screenshot%202025-01-08%20074143.png)
+![Screenshot 2025-01-08 074155](sejelni/student/Screenshot%202025-01-08%20074155.png)
