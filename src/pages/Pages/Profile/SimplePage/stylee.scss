@@ -1,0 +1,70 @@
+.gallery-item {
+    padding: 10px;
+}
+
+.gallery-item-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    border: 1px solid #444; /* Darker border for dark mode */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Darker shadow for dark mode */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #333; /* Dark background for dark mode */
+}
+
+.gallery-item-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); /* Darker shadow for hover in dark mode */
+}
+
+.gallery-item-wrapper img:hover {
+    transform: scale(1.1);
+}
+
+.card-header-dark {
+    // background-color: #444; /* Dark background for header */
+    color: #e9ecef; /* Light text color for contrast */
+    padding: 15px;
+    border-bottom: 1px solid #555; /* Slightly lighter border for separation */
+    border-radius: 5px 5px 0 0; /* Rounded corners for the top of the card */
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.wrap {
+    white-space: normal;
+    word-wrap: break-word;
+}
+.dropzone {
+    transition: all 0.3s ease-in-out;
+}
+
+.dropzone.minimized-height {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropzone:hover {
+    background-color: #f8f9fa;
+}
+
+.dropzone p {
+    margin: 0;
+    font-size: 14px;
+    color: #6c757d;
+}

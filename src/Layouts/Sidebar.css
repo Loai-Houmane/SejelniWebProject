@@ -1,0 +1,18 @@
+/* Sidebar.css */
+.app-menu.navbar-menu {
+  background-color: #ffffff;
+  border: none;
+  box-shadow: none;
+}
+
+.navbar-brand-box {
+  background-color: #ffffff;
+}
+
+.sidebar-background {
+  display: none;
+}
+
+.vertical-overlay {
+  display: none;
+}

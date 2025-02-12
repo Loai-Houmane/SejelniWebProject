@@ -1,0 +1,39 @@
+.pt {
+  padding-top: 5px;
+}
+
+.pb {
+  padding-bottom: 30px;
+}
+
+.text-custom-color {
+  color: #2790C7;
+}
+
+.button-custom-color {
+  color: #2790C7;
+}
+
+.position-relative .btn-link {
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for centering */
+}
+
+.text-center p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-center p .button-custom-color {
+  margin-left: 5px; /* Adjust spacing as needed */
+}
+.password-toggle-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}

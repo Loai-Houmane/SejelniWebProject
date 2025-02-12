@@ -1,0 +1,235 @@
+import React, { useEffect, useState } from "react";
+import { Row, Col, CardBody, Card, Alert, Container, Input, Label, Form, FormFeedback, Button, Spinner } from "reactstrap";
+
+// Formik Validation
+import * as Yup from "yup";
+import { useFormik } from "formik";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+// action
+import { registerUser, apiError, resetRegisterFlag } from "../../slices/thunks";
+import { Signup } from "../ApiCalls/SignUpAPI";
+
+//redux
+import { useSelector, useDispatch } from "react-redux";
+
+import { Link, useNavigate } from "react-router-dom";
+
+//import images 
+import logoLight from "../../assets/images/logo-dark.png";
+import ParticlesAuth from "../AuthenticationInner/ParticlesAuth";
+import { createSelector } from "reselect";
+import './style.scss';
+
+const RegisterStudent = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+
+    const validation = useFormik({
+        // enableReinitialize : use this flag when initial values needs to be changed
+        enableReinitialize: true,
+
+        initialValues: {
+            name: '',
+            email: '',
+            password: '',
+            confirm_password: ''
+        },
+        validationSchema: Yup.object({
+            name: Yup.string().required("Entrer Votre Nom"),
+            email: Yup.string().email("Invalid email").required("Entrer Votre Email"),
+            password: Yup.string().min(8, "Password must be at least 8 characters").required("Entrer Votre Mot De Pass"),
+            confirm_password: Yup.string()
+                .oneOf([Yup.ref('password'), null], "Mot De Passe Different")
+                .required("Reecrire vote MDP!")
+        }),
+        onSubmit: (values) => {
+            if (registerType) {
+                const response = Signup({ ...values, type: registerType });
+                // Display a success message
+                toast.success("Account Created!");
+
+                // Navigate to the login page
+                navigate("/login");
+            } else {
+                toast.error("Please select a registration type.");
+            }
+        }
+    });
+
+    const selectLayoutState = (state) => state.Account;
+    const registerdatatype = createSelector(
+        selectLayoutState,
+        (account) => ({
+            success: account.success,
+            error: account.error
+        })
+    );
+    
+    const { error, success } = useSelector(registerdatatype);
+
+    useEffect(() => {
+        dispatch(apiError(""));
+    }, [dispatch]);
+
+    useEffect(() => {
+        if (success) {
+            setTimeout(() => navigate("/login"), 3000);
+        }
+
+        setTimeout(() => {
+            dispatch(resetRegisterFlag());
+        }, 3000);
+
+    }, [dispatch, success, error, navigate]);
+
+    document.title = "Creer un compte";
+
+    return (
+        <React.Fragment>
+            <ParticlesAuth>
+                <div className="auth-page-content">
+                    <Container>
+                        <Row>
+                            <Col lg={12}>
+                                <div className="text-center mt-sm-5 mb-4 text-white-50">
+                                    <div>
+                                        <Link to="/" className="d-inline-block auth-logo">
+                                            <img src={logoLight} alt="" height="100" />
+                                        </Link>
+                                    </div>
+                                </div>
+                            </Col>
+                        </Row>
+
+                        <Row className="justify-content-center">
+                            <Col md={8} lg={6} xl={5}>
+                                <Card className="mt-4">
+
+                                    <CardBody className="p-4">
+                                        <div className="text-center mt-2">
+                                            <h5 className="text-custom-color">Creer un nouveau compte</h5>
+                                        </div>
+                                        <div className="p-2 mt-4">
+                                            <Form
+                                                onSubmit={(e) => {
+                                                    e.preventDefault();
+                                                    validation.handleSubmit();
+                                                    return false;
+                                                }}
+                                                className="needs-validation" action="#">
+
+                                                {success && success ? (
+                                                    <>
+                                                        {toast("You are being redirected to the login page...", {position: "top-right", hideProgressBar: false, progress: undefined, toastId: "" })}
+                                                        <ToastContainer autoClose={2000} limit={1} />
+                                                        <Alert color="success">
+                                                            Registered successfully! Redirecting to login page...
+                                                        </Alert>
+                                                    </>
+                                                ) : null}
+
+                                                {error && error ? (
+                                                    <Alert color="danger"><div>{error.message || "An error occurred, please try again."}</div></Alert>
+                                                ) : null}
+
+                                                <div className="mb-3">
+                                                    <Label htmlFor="username" className="form-label">Nom <span className="text-danger">*</span></Label>
+                                                    <Input
+                                                        id="name"
+                                                        name="name"
+                                                        className="form-control"
+                                                        placeholder=" Entrer Votre Nom"
+                                                        type="text"
+                                                        onChange={validation.handleChange}
+                                                        onBlur={validation.handleBlur}
+                                                        value={validation.values.name || ""}
+                                                        invalid={
+                                                            validation.touched.name && validation.errors.name ? true : false
+                                                        }
+                                                    />
+                                                    {validation.touched.name && validation.errors.name ? (
+                                                        <FormFeedback type="invalid"><div>{validation.errors.name}</div></FormFeedback>
+                                                    ) : null}
+                                                </div>
+
+                                                <div className="mb-3">
+                                                    <Label htmlFor="useremail" className="form-label">Email <span className="text-danger">*</span></Label>
+                                                    <Input
+                                                        id="email"
+                                                        name="email"
+                                                        className="form-control"
+                                                        placeholder="Entrer Votre Email"
+                                                        type="email"
+                                                        onChange={validation.handleChange}
+                                                        onBlur={validation.handleBlur}
+                                                        value={validation.values.email || ""}
+                                                        invalid={
+                                                            validation.touched.email && validation.errors.email ? true : false
+                                                        }
+                                                    />
+                                                    {validation.touched.email && validation.errors.email ? (
+                                                        <FormFeedback type="invalid"><div>{validation.errors.email}</div></FormFeedback>
+                                                    ) : null}
+                                                </div>
+
+                                                <div className="mb-3">
+                                                    <Label htmlFor="userpassword" className="form-label">Mot De pass <span className="text-danger">*</span></Label>
+                                                    <Input
+                                                        name="password"
+                                                        type="password"
+                                                        placeholder="Entrer Mot de Passe"
+                                                        onChange={validation.handleChange}
+                                                        onBlur={validation.handleBlur}
+                                                        value={validation.values.password || ""}
+                                                        invalid={
+                                                            validation.touched.password && validation.errors.password ? true : false
+                                                        }
+                                                    />
+                                                    {validation.touched.password && validation.errors.password ? (
+                                                        <FormFeedback type="invalid"><div>{validation.errors.password}</div></FormFeedback>
+                                                    ) : null}
+                                                </div>
+
+                                                <div className="mb-2">
+                                                    <Label htmlFor="confirmPassword" className="form-label">Confirme Mot De passe <span className="text-danger">*</span></Label>
+                                                    <Input
+                                                        name="confirm_password"
+                                                        type="password"
+                                                        placeholder="Confirme Mot De Passe"
+                                                        onChange={validation.handleChange}
+                                                        onBlur={validation.handleBlur}
+                                                        value={validation.values.confirm_password || ""}
+                                                        invalid={
+                                                            validation.touched.confirm_password && validation.errors.confirm_password ? true : false
+                                                        }
+                                                    />
+                                                    {validation.touched.confirm_password && validation.errors.confirm_password ? (
+                                                        <FormFeedback type="invalid"><div>{validation.errors.confirm_password}</div></FormFeedback>
+                                                    ) : null}
+                                                </div>
+
+                                                <div className="mt-4">
+                                                    <button className="btn btn-success w-100" type="submit">Creer mon compte</button>
+                                                </div>
+
+                                                <div className="mt-4 text-center">
+                                                    <p className="mb-0">Vous avez déjà un compte? <Link to="/login" className="fw-semibold  text-custom-color">Se Connecter</Link></p>
+                                                </div>
+                                            </Form>
+                                        </div>
+                                    </CardBody>
+                                </Card>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
+            </ParticlesAuth>
+        </React.Fragment>
+    );
+};
+
+export default RegisterStudent;

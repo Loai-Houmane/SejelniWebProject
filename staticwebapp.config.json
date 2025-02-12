@@ -1,0 +1,17 @@
+{
+  "routes": [
+    {
+      "route": "/dashboard-analytics",
+      "rewrite": "/index.html"
+    },
+    {
+      "route": "/clients",
+      "rewrite": "/index.html"
+    }
+  ],
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html"
+    }
+  }
+}

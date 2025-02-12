@@ -1,0 +1,64 @@
+.article-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  border: 1px solid #ccc; /* Lighter border */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+  background-color: #fff; /* White background */
+  color: #333; /* Dark text */
+  height: 200px; /* Fixed height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px; /* Add padding */
+  margin-bottom: 20px; /* Add margin */
+  position: relative; /* Ensure icons are positioned correctly */
+}
+
+.article-card h5 {
+  font-size: 1.25rem; /* Increase title size */
+  margin-bottom: 10px; /* Add margin below title */
+}
+
+.article-card .icon-container {
+  position: absolute; /* Position icons absolutely */
+  top: 10px; /* Adjust top position */
+  right: 10px; /* Adjust right position */
+  display: flex;
+  gap: 10px; /* Space between icons */
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Lighter shadow */
+}
+
+.icon {
+  cursor: pointer;
+  transition: color 0.2s; /* Add transition for color */
+}
+
+.icon.edit {
+  color: #007bff; /* Edit icon color */
+}
+
+.icon.edit:hover {
+  color: #0056b3; /* Darker edit icon color on hover */
+}
+
+.icon.delete {
+  color: #dc3545; /* Delete icon color */
+}
+
+.icon.delete:hover {
+  color: #c82333; /* Darker delete icon color on hover */
+}
+
+button {
+  transition: background-color 0.2s, color 0.2s; /* Add transition for buttons */
+}
+
+button:hover {
+  background-color: #f8f9fa; /* Lighter background on hover */
+  color: #333; /* Dark text on hover */
+}

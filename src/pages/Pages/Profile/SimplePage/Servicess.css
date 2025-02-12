@@ -1,0 +1,60 @@
+/* Services.css */
+.icon-button {
+    color: #495057; /* Higher contrast color */
+    font-size: 0.8rem; /* Smaller size */
+    margin-bottom: 0.25rem; /* Space between icons */
+}
+
+.icon-button:hover {
+    color: #343a40; /* Slightly darker on hover */
+}
+
+.profile-project-card {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f8f9fa; /* Light background color */
+}
+
+.profile-project-card .card-body {
+    flex-grow: 1; /* Ensure the card body takes up available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile-project-card .btn {
+    margin-top: auto; /* Push the button to the bottom */
+    background-color: #ffffff; /* Light button background */
+    color: #343a40; /* Dark button text */
+    border: 1px solid #ced4da; /* Light border color */
+}
+
+.profile-project-card .btn:hover {
+    background-color: #e9ecef; /* Slightly darker on hover */
+    color: #212529; /* Darker text on hover */
+}
+
+.profile-project-card h5,
+.profile-project-card p {
+    color: #212529; /* Darker text color for better contrast */
+}
+
+.profile-project-card .badge {
+    color: #212529; /* Darker text color for badge */
+}
+
+/* Additional styles for better contrast */
+.profile-project-card .text-muted {
+    color: #6c757d; /* Muted text color */
+}
+
+.profile-project-card .text-decoration-line-through {
+    color: #dc3545; /* Red color for strikethrough text */
+}
+
+.profile-project-card .badge.bg-warning {
+    background-color: #ffc107; /* Warning badge background color */
+    color: #212529; /* Dark text color for badge */
+}

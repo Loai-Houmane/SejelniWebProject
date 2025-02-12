@@ -1,0 +1,9 @@
+.fixed-table th, .fixed-table td {
+  width: 16.66%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table-responsive {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
